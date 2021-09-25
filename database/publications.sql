@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-09-2021 a las 07:04:11
+-- Tiempo de generación: 25-09-2021 a las 21:30:00
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.23
 
@@ -132,7 +132,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `role_id`, `user`, `password`, `name`, `last_name`, `mother_last_name`, `email`, `active`, `deleted`, `created`, `modified`) VALUES
 ('374c14b4-9989-47d2-8fa4-da2dad32cb69', '54a73610-9e57-4714-a448-7f488df29a5a', 'mariana', '$2y$10$EJ.QRFNxRxDVXhgAMO47Eeg1e3cKzeI4rSey0KoyEPfqk448PlXN.', 'Mariana', 'Hernandez', 'Sandoval', 'mariana@gmail.com', 1, 0, '2021-09-16 03:14:58', '2021-09-16 03:25:29'),
-('4b8d094c-eab6-47c2-a3ee-e90a7e5ecf02', '4ab19130-67fa-418c-9f39-513d1325977b', 'jorge', '$2y$10$ycQFcU/tLkVP3d41v5TVF.xPHLj2CZEa.rn3Gq7dPOcL9OtAppXeu', 'Jorge', 'Itza', 'Gomez', 'jorgeitza023@gmail.com', 1, 0, '2021-05-24 14:58:01', '2021-09-15 23:41:19'),
+('4b8d094c-eab6-47c2-a3ee-e90a7e5ecf02', '4ab19130-67fa-418c-9f39-513d1325977b', 'jorge', '$2y$10$EJ.QRFNxRxDVXhgAMO47Eeg1e3cKzeI4rSey0KoyEPfqk448PlXN.', 'Jorge', 'Itza', 'Gomez', 'jorgeitza023@gmail.com', 1, 0, '2021-05-24 14:58:01', '2021-09-15 23:41:19'),
 ('559c4399-d692-4834-ada3-7432f4477e76', '2d16d379-3a35-4fa2-b6db-6fd74808a3e5', 'alex', '$2y$10$EJ.QRFNxRxDVXhgAMO47Eeg1e3cKzeI4rSey0KoyEPfqk448PlXN.', 'Alex', 'Shepherd', 'G', 'jorgeitza098@hotmail.com', 1, 0, '2021-09-16 02:36:23', '2021-09-16 03:54:39'),
 ('e055e238-a0d5-4983-8e05-48c3f665d54e', '42d9523f-a62e-4f0d-a4af-a821167a0f35', 'cheryl', '$2y$10$EJ.QRFNxRxDVXhgAMO47Eeg1e3cKzeI4rSey0KoyEPfqk448PlXN.', 'Cheryl', 'Mason', 'M', 'cheryl@gmail.com', 1, 0, '2021-09-16 03:13:45', '2021-09-16 04:08:22'),
 ('e27761da-d185-4e05-a12e-605bdd52a9e0', 'b44e618c-c4a6-47df-8a32-2921ad3f5206', 'alessa', '$2y$10$EJ.QRFNxRxDVXhgAMO47Eeg1e3cKzeI4rSey0KoyEPfqk448PlXN.', 'Alessa', 'Gillespie', 'G', 'alessagillespie9y@hotmail.com', 1, 0, '2021-09-16 02:37:37', '2021-09-16 02:37:37'),

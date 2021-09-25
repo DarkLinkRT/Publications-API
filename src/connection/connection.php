@@ -30,7 +30,7 @@ class Connection {
 	function cerrarConexion(){
        mysqli_close($this->conexion);		
 	}
-	//Realizar un registro en la BD
+	//Realizar una consulta en la BD
 	function Mysql_Exec($comandoSQL){
 		$this->abrirConexion();//Abre la conexion
 		$resultado = mysqli_query($this->conexion,$comandoSQL);//Mandar la consulta

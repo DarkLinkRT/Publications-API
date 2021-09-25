@@ -1,6 +1,6 @@
 <?php
 
-    header("Content-Type: text/html;charset=utf-8");
+    header('Content-Type: application/json; charset=utf-8');
 
     $controller = "";
     $action= "";
@@ -19,6 +19,9 @@
     switch($controller) {
         case "Publications": 
             include "src/controllers/PublicationsController.php"; 
+            break;
+        case "Users": 
+            include "src/controllers/UsersController.php"; 
             break;
         default :
             $response["error"] = "El controlador '" . $controller . "' no existe.";
