@@ -1,7 +1,6 @@
 <?php
 
 include 'src/connection/connection.php';
-require "vendor/autoload.php";
 use \Firebase\JWT\JWT;
 
  class User{

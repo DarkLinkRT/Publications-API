@@ -1,5 +1,8 @@
 <?php
 
+    require "vendor/autoload.php";
+    use \Firebase\JWT\JWT;
+
     header('Content-Type: application/json; charset=utf-8');
 
     $controller = "";
