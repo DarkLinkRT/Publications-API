@@ -6,73 +6,94 @@
     switch($action) {
         case "get" :
 
-            switch($_SERVER['REQUEST_METHOD']){
-                case "GET":
+            if(checkJWT($jwt)){
+                switch($_SERVER['REQUEST_METHOD']){
 
-                    $result = $Publication->get();
-                    $response["result"] = $result;
-                    break;
-
-                default:
-
-                    $response["error"] = "Método no permitido";
-                    break;
+                    case "GET":
+    
+                        $result = $Publication->get();
+                        $response["result"] = $result;
+                        break;
+    
+                    default:
+    
+                        $response["error"] = "Método no permitido";
+                        break;
+    
+                }
+            } else{
 
             }
+            $response["error"] = "Acceso denegado";
             break;
 
         case "add":
 
-            switch($_SERVER['REQUEST_METHOD']){
-                case "POST":
+            if(checkJWT($jwt)){
+                switch($_SERVER['REQUEST_METHOD']){
+                    case "POST":
 
-                    $data = json_decode(file_get_contents('php://input'), true);
-                    $result = $Publication->add($data);
-                    $response["status"] = $result;
-                    break;
+                        $data = json_decode(file_get_contents('php://input'), true);
+                        $result = $Publication->add($data);
+                        $response["status"] = $result;
+                        break;
 
-                default:
+                    default:
 
-                    $response["error"] = "Método no permitido";
-                    break;
+                        $response["error"] = "Método no permitido";
+                        break;
+
+                }
+            } else{
 
             }
+            $response["error"] = "Acceso denegado";
             break;
 
         case "update":
 
-            switch($_SERVER['REQUEST_METHOD']){
-                case "PUT":
+            if(checkJWT($jwt)){
+                switch($_SERVER['REQUEST_METHOD']){
+                    case "PUT":
 
-                    $data = json_decode(file_get_contents('php://input'), true);
-                    $result = $Publication->update($data);
-                    $response["status"] = $result;
-                    break;
+                        $data = json_decode(file_get_contents('php://input'), true);
+                        $result = $Publication->update($data);
+                        $response["status"] = $result;
+                        break;
 
-                default:
+                    default:
 
-                    $response["error"] = "Método no permitido";
-                    break;
+                        $response["error"] = "Método no permitido";
+                        break;
+
+                }
+            } else{
 
             }
+            $response["error"] = "Acceso denegado";
             break;
 
         case "delete":
 
-            switch($_SERVER['REQUEST_METHOD']){
-                case "DELETE":
+            if(checkJWT($jwt)){
+                switch($_SERVER['REQUEST_METHOD']){
+                    case "DELETE":
 
-                    $data = json_decode(file_get_contents('php://input'), true);
-                    $result = $Publication->delete($data);
-                    $response["status"] = $result;
-                    break;
+                        $data = json_decode(file_get_contents('php://input'), true);
+                        $result = $Publication->delete($data);
+                        $response["status"] = $result;
+                        break;
 
-                default:
+                    default:
 
-                    $response["error"] = "Método no permitido";
-                    break;
+                        $response["error"] = "Método no permitido";
+                        break;
+
+                }
+            } else{
 
             }
+            $response["error"] = "Acceso denegado";
             break;
 
         default:
