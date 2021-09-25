@@ -3,6 +3,7 @@
     require "vendor/autoload.php";
     use \Firebase\JWT\JWT;
 
+    header("Access-Control-Allow-Origin: *");
     header('Content-Type: application/json; charset=utf-8');
     header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
@@ -21,7 +22,6 @@
         $action = $request[1];
     }
 
-    $secret_key = "ZURA";
     $jwt = null;
 
     $authHeader = $_SERVER['HTTP_AUTHORIZATION'];
@@ -31,29 +31,24 @@
 
     function checkJWT($token){
 
+        $secret_key = "ZURA";
+
         if($token){
 
             try {
         
                 $decoded = JWT::decode($token, $secret_key, array('HS256'));
                 
-                return true;
+                return 1;
                 
         
             }catch (Exception $e){
         
-                http_response_code(401);
-            
-                return false;
-                // return json_encode(array(
-                //     "message" => "Acceso denegado.",
-                //     "error" => $e->getMessage()
-                // ));
+                return $e->getMessage();
             }
         
         }
-
-        return false;
+        return $e->getMessage();
 
     }
 

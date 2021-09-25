@@ -11,7 +11,7 @@
 
                     $data = json_decode(file_get_contents('php://input'), true);
                     $result = $User->login($data);
-                    $response["status"] = $result;
+                    $response["response"] = $result;
                     break;
 
                 default:

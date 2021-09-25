@@ -39,7 +39,7 @@ use \Firebase\JWT\JWT;
                 $audience_claim = "AUDIENCE";
                 $issuedat_claim = time(); // issued at
                 $notbefore_claim = $issuedat_claim + 10; //not before in seconds
-                $expire_claim = $issuedat_claim + 60; // expire time in seconds
+                $expire_claim = $issuedat_claim + (60*60); // expire time in seconds
                 $token = array(
                     "iss" => $issuer_claim,
                     "aud" => $audience_claim,

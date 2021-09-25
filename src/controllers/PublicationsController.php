@@ -3,10 +3,12 @@
 
     $Publication = new Publication();
 
+    $tokenResponse = checkJWT($jwt);
+
     switch($action) {
         case "get" :
 
-            if(checkJWT($jwt)){
+            if($tokenResponse == 1){
                 switch($_SERVER['REQUEST_METHOD']){
 
                     case "GET":
@@ -22,14 +24,15 @@
     
                 }
             } else{
-
+                $response["error"] = "Acceso denegado";
+                $response["tokenMessage"] = $tokenResponse;
             }
-            $response["error"] = "Acceso denegado";
+            $response["tokenMessage"] = $tokenResponse;
             break;
 
         case "add":
 
-            if(checkJWT($jwt)){
+            if($tokenResponse == 1){
                 switch($_SERVER['REQUEST_METHOD']){
                     case "POST":
 
@@ -45,14 +48,15 @@
 
                 }
             } else{
-
+                $response["error"] = "Acceso denegado";
+                $response["tokenMessage"] = $tokenResponse;
             }
-            $response["error"] = "Acceso denegado";
+            $response["tokenMessage"] = $tokenResponse;
             break;
 
         case "update":
 
-            if(checkJWT($jwt)){
+            if($tokenResponse == 1){
                 switch($_SERVER['REQUEST_METHOD']){
                     case "PUT":
 
@@ -68,14 +72,15 @@
 
                 }
             } else{
-
+                $response["error"] = "Acceso denegado";
+                $response["tokenMessage"] = $tokenResponse;
             }
-            $response["error"] = "Acceso denegado";
+            $response["tokenMessage"] = $tokenResponse;
             break;
 
         case "delete":
 
-            if(checkJWT($jwt)){
+            if($tokenResponse == 1){
                 switch($_SERVER['REQUEST_METHOD']){
                     case "DELETE":
 
@@ -91,9 +96,10 @@
 
                 }
             } else{
-
+                $response["error"] = "Acceso denegado";
+                $response["tokenMessage"] = $tokenResponse;
             }
-            $response["error"] = "Acceso denegado";
+            $response["tokenMessage"] = $tokenResponse;
             break;
 
         default:
