@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-09-2021 a las 21:30:00
+-- Tiempo de generación: 26-09-2021 a las 00:36:54
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.23
 
@@ -39,6 +39,16 @@ CREATE TABLE `permissions` (
   `modified` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `permissions`
+--
+
+INSERT INTO `permissions` (`id`, `name`, `description`, `controller`, `action`, `active`, `deleted`, `created`, `modified`) VALUES
+('8b91822f-1e4f-11ec-860f-244bfe7a87eb', 'Obtener publicaciones', 'Obtener publicaciones', 'Publications', 'get', 1, 0, '2021-09-25 17:25:53', '2021-09-26 00:23:16'),
+('8b919d3e-1e4f-11ec-860f-244bfe7a87eb', 'Añadir publicaciones', 'Añadir publicaciones', 'Publications', 'add', 1, 0, '2021-09-25 17:25:53', '2021-09-26 00:23:16'),
+('8b91b136-1e4f-11ec-860f-244bfe7a87eb', 'Editar publicaciones', 'Editar publicaciones', 'Publications', 'update', 1, 0, '2021-09-25 17:25:53', '2021-09-26 00:23:16'),
+('8b91c4a0-1e4f-11ec-860f-244bfe7a87eb', 'Eliminar publicaciones', 'Eliminar publicaciones', 'Publications', 'delete', 1, 0, '2021-09-25 17:25:53', '2021-09-26 00:23:16');
+
 -- --------------------------------------------------------
 
 --
@@ -60,10 +70,10 @@ CREATE TABLE `publications` (
 --
 
 INSERT INTO `publications` (`id`, `title`, `description`, `user_id`, `active`, `deleted`, `created`) VALUES
-('614eaa4955949', 'titulo', 'descripcion', 'fba56bd9-b1c2-11eb-ae70-0021ccb8b7e2', 1, 0, '2021-09-24 23:49:13'),
-('72623f8a-9835-419c-9811-46ea20546312', 'titulo', 'descripcion', 'fba56bd9-b1c2-11eb-ae70-0021ccb8b7e2', 1, 0, '2021-09-24 23:50:49'),
+('72623f8a-9835-419c-9811-46ea20546311', 'titulo de prueba', 'descripcion de prueba', 'fba56bd9-b1c2-11eb-ae70-0021ccb8b7e2', 1, 0, '2021-09-24 23:49:13'),
+('72623f8a-9835-419c-9811-46ea20546312', 'titulo de prueba 2', 'descripciones', 'fba56bd9-b1c2-11eb-ae70-0021ccb8b7e2', 1, 0, '2021-09-24 23:50:49'),
 ('c1b10920-8760-4b7d-a1a5-313fe8842032', 'Inicio de publicaciónS', 'Candy jelly beans powder brownie biscuit. Jelly marzipan oat cake cake. Cupcake I love wafer cake. Halvah I love powder jelly I love cheesecake cotton candy tiramisu brownie.', 'fba56bd9-b1c2-11eb-ae70-0021ccb8b7e2', 1, 0, '2021-09-15 12:27:35'),
-('e2f24564-9e86-4008-b2a4-487eb677bdaa', 'Contenido', 'descripcion de prueba', 'fba56bd9-b1c2-11eb-ae70-0021ccb8b7e2', 1, 1, '2021-09-16 04:18:35');
+('e2f24564-9e86-4008-b2a4-487eb677bdaa', 'Contenido', 'descripcion de prueba', 'fba56bd9-b1c2-11eb-ae70-0021ccb8b7e2', 0, 1, '2021-09-16 04:18:35');
 
 -- --------------------------------------------------------
 
@@ -104,6 +114,21 @@ CREATE TABLE `roles_permissions` (
   `role_id` char(36) COLLATE utf8_spanish_ci NOT NULL,
   `permission_id` char(36) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `roles_permissions`
+--
+
+INSERT INTO `roles_permissions` (`id`, `role_id`, `permission_id`) VALUES
+('9f816e6a-1e50-11ec-860f-244bfe7a87eb', '54a73610-9e57-4714-a448-7f488df29a5a', '8b91822f-1e4f-11ec-860f-244bfe7a87eb'),
+('9f817b58-1e50-11ec-860f-244bfe7a87eb', '2d16d379-3a35-4fa2-b6db-6fd74808a3e5', '8b919d3e-1e4f-11ec-860f-244bfe7a87eb'),
+('9f818435-1e50-11ec-860f-244bfe7a87eb', '42d9523f-a62e-4f0d-a4af-a821167a0f35', '8b91b136-1e4f-11ec-860f-244bfe7a87eb'),
+('9f818cbd-1e50-11ec-860f-244bfe7a87eb', '42d9523f-a62e-4f0d-a4af-a821167a0f35', '8b919d3e-1e4f-11ec-860f-244bfe7a87eb'),
+('9f81956d-1e50-11ec-860f-244bfe7a87eb', '42d9523f-a62e-4f0d-a4af-a821167a0f35', '8b91822f-1e4f-11ec-860f-244bfe7a87eb'),
+('9f819de3-1e50-11ec-860f-244bfe7a87eb', 'b44e618c-c4a6-47df-8a32-2921ad3f5206', '8b91b136-1e4f-11ec-860f-244bfe7a87eb'),
+('9f81a675-1e50-11ec-860f-244bfe7a87eb', 'b44e618c-c4a6-47df-8a32-2921ad3f5206', '8b91c4a0-1e4f-11ec-860f-244bfe7a87eb'),
+('9f81af30-1e50-11ec-860f-244bfe7a87eb', 'b44e618c-c4a6-47df-8a32-2921ad3f5206', '8b919d3e-1e4f-11ec-860f-244bfe7a87eb'),
+('9f81b79d-1e50-11ec-860f-244bfe7a87eb', 'b44e618c-c4a6-47df-8a32-2921ad3f5206', '8b91822f-1e4f-11ec-860f-244bfe7a87eb');
 
 -- --------------------------------------------------------
 

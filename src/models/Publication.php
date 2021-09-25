@@ -80,7 +80,7 @@ include 'src/connection/connection.php';
         }
 
         if($id != "") {
-            $SQL='UPDATE ' . $this->table .' SET deleted = 1 WHERE id = "' . $id . '"'; 
+            $SQL='UPDATE ' . $this->table .' SET deleted = 1 , active = 0 WHERE id = "' . $id . '"'; 
 		    $Connection = new Connection();
             $result_query = $Connection->Mysql_Exec($SQL);
         } else{

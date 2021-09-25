@@ -53,6 +53,7 @@ use \Firebase\JWT\JWT;
                 $jwt = JWT::encode($token, $secret_key);
                 return  array(
                     "message" => "Acceso correcto.",
+                    "user_id" => $datos["id"],
                     "token_access" => $jwt
                 );
                    
