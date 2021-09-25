@@ -1,7 +1,5 @@
 <?php
 
-include 'src/connection/connection.php';
-
  class Publication{
 
     private $table = "publications";
@@ -20,18 +18,22 @@ include 'src/connection/connection.php';
 
     function add($data){
 
+        global $id_user;
+
         $fields = "";
         $values = "";
 
         foreach($data as $field => $value){
-            $fields.=  $field . ',';
-            $values.= '"' . $value . '",';
+            if($field != "user_id"){
+                $fields.=  $field . ',';
+                $values.= '"' . $value . '",';
+            }
         }
 
         $fields = rtrim($fields, ",");
         $values = rtrim($values, ",");
 
-        $SQL='INSERT INTO ' . $this->table .' ( id , ' . $fields . ' ) VALUES ( "'.$this->uuid().'",' . $values . ' )'; 
+        $SQL='INSERT INTO ' . $this->table .' ( id , ' . $fields . ' , user_id ) VALUES ( "'.$this->uuid().'",' . $values . ' , "' . $id_user . '")'; 
 		$Connection = new Connection();
         $result_query = $Connection->Mysql_Exec($SQL);
         return $result_query;
@@ -40,15 +42,19 @@ include 'src/connection/connection.php';
 
     function update($data){
 
+        global $id_user;
+
         $id = "";
 
         $fields = "";
         $values = "";
 
         foreach($data as $field => $value){
-            $values.= $field . ' = "' . $value . '" ,';
-            if( $field == "id" ){
-                $id = $value;
+            if($field != "user_id"){
+                $values.= $field . ' = "' . $value . '" ,';
+                if( $field == "id" ){
+                    $id = $value;
+                }
             }
         }
 

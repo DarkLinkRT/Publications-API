@@ -1,6 +1,5 @@
 <?php
 
-include 'src/connection/connection.php';
 use \Firebase\JWT\JWT;
 
  class User{
@@ -17,7 +16,7 @@ use \Firebase\JWT\JWT;
         $user = $data['user'];
         $password = $data['password'];
 
-        $SQL = 'SELECT user, password FROM ' . $this->table . ' WHERE user = "' . $user . '" LIMIT 1';
+        $SQL = 'SELECT user, password , id , role_id FROM ' . $this->table . ' WHERE user = "' . $user . '" LIMIT 1';
 
         $result_query = $Connection->Mysql_Exec($SQL);
         
@@ -26,6 +25,8 @@ use \Firebase\JWT\JWT;
         $datos = array(
             "user" => utf8_encode($resultado[0]),
             "password" => utf8_encode($resultado[1]),
+            "id" => utf8_encode($resultado[2]),
+            "role_id" => utf8_encode($resultado[3])
         );
 
         if($datos['user']  !=  "" || $datos['user' != null]){
@@ -45,7 +46,9 @@ use \Firebase\JWT\JWT;
                     "aud" => $audience_claim,
                     "iat" => $issuedat_claim,
                     "nbf" => $notbefore_claim,
-                    "exp" => $expire_claim
+                    "exp" => $expire_claim,
+                    "user_id" => $datos["id"],
+                    "role_id" => $datos["role_id"]
                 );
 
                 http_response_code(200);
@@ -53,7 +56,7 @@ use \Firebase\JWT\JWT;
                 $jwt = JWT::encode($token, $secret_key);
                 return  array(
                     "message" => "Acceso correcto.",
-                    "user_id" => $datos["id"],
+                    // "user_id" => $datos["id"],
                     "token_access" => $jwt
                 );
                    
