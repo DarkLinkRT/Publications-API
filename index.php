@@ -6,7 +6,7 @@
     use \Firebase\JWT\JWT;
 
     header("Access-Control-Allow-Origin: *");
-    header('Content-Type: application/json; charset=utf-8');
+    header('Content-Type: application/json ; charset=utf-8');
     header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
 
@@ -16,25 +16,25 @@
     $response = [];
 
     $route = $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
-    $route_array = explode("?",$route);
+    $route_array = explode("Api/",$route);
     $request = explode("/",$route_array[1]);
 
     if( $request != null){
         $controller = $request[0];
         $action = $request[1];
     }
-
    
     $role_user = "";
     $id_user = "";
 
     $jwt = null;
 
-    $authHeader = $_SERVER['HTTP_AUTHORIZATION'];
-    $arr = explode(" ", $authHeader);
-
-    $jwt = $arr[1];    
-
+    if($_SERVER['HTTP_AUTHORIZATION']){
+        $authHeader = $_SERVER['HTTP_AUTHORIZATION'];
+        $arr = explode(" ", $authHeader);
+    
+        $jwt = $arr[1];    
+    }
 
     // VERIFICACION DEL TOKEN
     function checkJWT($token){
@@ -104,7 +104,7 @@
             include "src/controllers/UsersController.php"; 
             break;
         default :
-            $response["error"] = "El controlador '" . $controller . "' no existe.";
+            $response["error"] = "El controlador '" . $request . "' no existe.";
             break;
     }
 

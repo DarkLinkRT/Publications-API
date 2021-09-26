@@ -1,5 +1,5 @@
 <?php
-    include "src/models/Publication.php";
+    include "../../../../src/models/Publication.php";
 
     $Publication = new Publication();
 

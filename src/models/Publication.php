@@ -6,7 +6,7 @@
 
     function get(){
 
-        $SQL = 'SELECT ' . $this->table .  '.title, ' . $this->table .  '.description, ' . $this->table .  '.created, users.name as username, roles.name as roluser FROM ' . $this->table .  ' Publications INNER JOIN users Users on Users.id = Publications.user_id INNER JOIN roles Roles on Roles.id = Users.role_id';
+        $SQL = 'SELECT Publications.title, Publications.description, Publications.created, Users.name as username, Roles.name as roluser FROM ' . $this->table .  ' Publications INNER JOIN users Users on Users.id = Publications.user_id INNER JOIN roles Roles on Roles.id = Users.role_id';
 		$Connection = new Connection();
 		$rs = $Connection->Mysql_Exec($SQL);
 		$result_query = array();

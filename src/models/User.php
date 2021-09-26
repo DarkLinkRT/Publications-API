@@ -93,7 +93,8 @@ use \Firebase\JWT\JWT;
             }
         }
         return  array(
-            "message" => "Acceso denegado."
+            "message" => "Usuario y contraseña incorrecta.",
+            "debug" => $data
         );
         
     }

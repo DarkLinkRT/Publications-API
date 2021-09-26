@@ -1,5 +1,5 @@
 <?php
-    include "src/models/User.php";
+    include "../../../../src/models/User.php";
 
     $User = new User();
 
@@ -14,16 +14,10 @@
                     $response["response"] = $result;
                     break;
 
-                case "GET":
-
-                    $data = json_decode(file_get_contents('php://input'), true);
-                    $result = $User->login($data);
-                    $response["response"] = $result;
-                    break;
-    
                 default:
 
-                    $response["error"] = "Método no permitido";
+                    $response["error"] = "Método no permitido : " . $_SERVER['REQUEST_METHOD'];
+
                     break;
 
             }
@@ -34,14 +28,14 @@
             switch($_SERVER['REQUEST_METHOD']){
                 case "POST":
 
-                    $data = json_decode(file_get_contents('php://input'), true);
+                    $data = json_decode(file_get_contents('php://input'),  true);
                     $result = $User->add($data);
                     $response["response"] = $result;
                     break;
 
                 default:
 
-                    $response["error"] = "Método no permitido";
+                    $response["error"] = "Método no permitido : " . $_SERVER['REQUEST_METHOD'];
                     break;
 
             }

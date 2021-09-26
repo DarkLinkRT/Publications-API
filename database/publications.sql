@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-09-2021 a las 02:13:00
+-- Tiempo de generación: 26-09-2021 a las 20:45:40
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.23
 
@@ -70,6 +70,7 @@ CREATE TABLE `publications` (
 --
 
 INSERT INTO `publications` (`id`, `title`, `description`, `user_id`, `active`, `deleted`, `created`) VALUES
+('480e6180-1683-4232-9aff-1219c8b39944', 'test', 'test', 'e27761da-d185-4e05-a12e-605bdd52a9e0', 1, 0, '2021-09-26 12:41:03'),
 ('72623f8a-9835-419c-9811-46ea20546311', 'titulo de prueba', 'descripcion de prueba', 'fba56bd9-b1c2-11eb-ae70-0021ccb8b7e2', 1, 0, '2021-09-24 23:49:13'),
 ('72623f8a-9835-419c-9811-46ea20546312', 'titulo de prueba 2', 'descripciones', 'fba56bd9-b1c2-11eb-ae70-0021ccb8b7e2', 1, 0, '2021-09-24 23:50:49'),
 ('96b3a046-5b33-4512-bbd4-3758917f27be', 'Contenido', 'descripcion de prueba ', '559c4399-d692-4834-ada3-7432f4477e76', 1, 0, '2021-09-25 18:43:37'),
@@ -145,7 +146,7 @@ CREATE TABLE `users` (
   `password` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `name` varchar(120) COLLATE utf8_spanish_ci NOT NULL,
   `last_name` varchar(120) COLLATE utf8_spanish_ci NOT NULL,
-  `mother_last_name` varchar(120) COLLATE utf8_spanish_ci NOT NULL,
+  `mother_last_name` varchar(120) COLLATE utf8_spanish_ci DEFAULT NULL,
   `email` varchar(250) COLLATE utf8_spanish_ci DEFAULT NULL,
   `active` tinyint(1) NOT NULL DEFAULT 1,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
