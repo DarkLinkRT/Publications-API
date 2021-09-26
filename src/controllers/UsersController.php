@@ -21,7 +21,25 @@
 
             }
             break;
+        
+        case "add":
 
+            switch($_SERVER['REQUEST_METHOD']){
+                case "POST":
+
+                    $data = json_decode(file_get_contents('php://input'), true);
+                    $result = $User->add($data);
+                    $response["response"] = $result;
+                    break;
+
+                default:
+
+                    $response["error"] = "Método no permitido";
+                    break;
+
+            }
+
+            break;
         default:
 
             $response["error"] = "La acción '" . $action . "' no existe en el controlador '" . $controller . "'";

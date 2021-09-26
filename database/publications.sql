@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-09-2021 a las 00:36:54
+-- Tiempo de generación: 26-09-2021 a las 02:13:00
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.23
 
@@ -72,8 +72,10 @@ CREATE TABLE `publications` (
 INSERT INTO `publications` (`id`, `title`, `description`, `user_id`, `active`, `deleted`, `created`) VALUES
 ('72623f8a-9835-419c-9811-46ea20546311', 'titulo de prueba', 'descripcion de prueba', 'fba56bd9-b1c2-11eb-ae70-0021ccb8b7e2', 1, 0, '2021-09-24 23:49:13'),
 ('72623f8a-9835-419c-9811-46ea20546312', 'titulo de prueba 2', 'descripciones', 'fba56bd9-b1c2-11eb-ae70-0021ccb8b7e2', 1, 0, '2021-09-24 23:50:49'),
+('96b3a046-5b33-4512-bbd4-3758917f27be', 'Contenido', 'descripcion de prueba ', '559c4399-d692-4834-ada3-7432f4477e76', 1, 0, '2021-09-25 18:43:37'),
 ('c1b10920-8760-4b7d-a1a5-313fe8842032', 'Inicio de publicaciónS', 'Candy jelly beans powder brownie biscuit. Jelly marzipan oat cake cake. Cupcake I love wafer cake. Halvah I love powder jelly I love cheesecake cotton candy tiramisu brownie.', 'fba56bd9-b1c2-11eb-ae70-0021ccb8b7e2', 1, 0, '2021-09-15 12:27:35'),
-('e2f24564-9e86-4008-b2a4-487eb677bdaa', 'Contenido', 'descripcion de prueba', 'fba56bd9-b1c2-11eb-ae70-0021ccb8b7e2', 0, 1, '2021-09-16 04:18:35');
+('e2f24564-9e86-4008-b2a4-487eb677bdaa', 'Contenido', 'descripcion de prueba', 'fba56bd9-b1c2-11eb-ae70-0021ccb8b7e2', 0, 1, '2021-09-16 04:18:35'),
+('f1796545-32fb-4631-a719-bb8bd4934e98', 'Contenido', 'descripcion de prueba sin mandar el usuario', 'e27761da-d185-4e05-a12e-605bdd52a9e0', 1, 0, '2021-09-25 18:40:40');
 
 -- --------------------------------------------------------
 
@@ -161,7 +163,7 @@ INSERT INTO `users` (`id`, `role_id`, `user`, `password`, `name`, `last_name`, `
 ('559c4399-d692-4834-ada3-7432f4477e76', '2d16d379-3a35-4fa2-b6db-6fd74808a3e5', 'alex', '$2y$10$EJ.QRFNxRxDVXhgAMO47Eeg1e3cKzeI4rSey0KoyEPfqk448PlXN.', 'Alex', 'Shepherd', 'G', 'jorgeitza098@hotmail.com', 1, 0, '2021-09-16 02:36:23', '2021-09-16 03:54:39'),
 ('e055e238-a0d5-4983-8e05-48c3f665d54e', '42d9523f-a62e-4f0d-a4af-a821167a0f35', 'cheryl', '$2y$10$EJ.QRFNxRxDVXhgAMO47Eeg1e3cKzeI4rSey0KoyEPfqk448PlXN.', 'Cheryl', 'Mason', 'M', 'cheryl@gmail.com', 1, 0, '2021-09-16 03:13:45', '2021-09-16 04:08:22'),
 ('e27761da-d185-4e05-a12e-605bdd52a9e0', 'b44e618c-c4a6-47df-8a32-2921ad3f5206', 'alessa', '$2y$10$EJ.QRFNxRxDVXhgAMO47Eeg1e3cKzeI4rSey0KoyEPfqk448PlXN.', 'Alessa', 'Gillespie', 'G', 'alessagillespie9y@hotmail.com', 1, 0, '2021-09-16 02:37:37', '2021-09-16 02:37:37'),
-('fba56bd9-b1c2-11eb-ae70-0021ccb8b7e2', '4105f8cb-112d-44a6-8d06-41989dd14a92', 'admin', '$2y$10$EJ.QRFNxRxDVXhgAMO47Eeg1e3cKzeI4rSey0KoyEPfqk448PlXN.', 'Jodelle', 'Ferland', 'Micah', 'alessagillespie9y@hotmail.com', 1, 0, '2021-05-10 14:07:37', '2021-09-16 01:45:37');
+('fba56bd9-b1c2-11eb-ae70-0021ccb8b7e2', '4105f8cb-112d-44a6-8d06-41989dd14a92', 'admin_', '$2y$10$EJ.QRFNxRxDVXhgAMO47Eeg1e3cKzeI4rSey0KoyEPfqk448PlXN.', 'Jodelle', 'Ferland', 'Micah', 'alessagillespie9y@hotmail.com', 1, 0, '2021-05-10 14:07:37', '2021-09-16 01:45:37');
 
 --
 -- Índices para tablas volcadas
