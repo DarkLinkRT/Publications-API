@@ -14,6 +14,13 @@
                     $response["response"] = $result;
                     break;
 
+                case "GET":
+
+                    $data = json_decode(file_get_contents('php://input'), true);
+                    $result = $User->login($data);
+                    $response["response"] = $result;
+                    break;
+    
                 default:
 
                     $response["error"] = "Método no permitido";

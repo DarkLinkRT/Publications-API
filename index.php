@@ -24,15 +24,17 @@
         $action = $request[1];
     }
 
+   
+    $role_user = "";
+    $id_user = "";
+
     $jwt = null;
 
     $authHeader = $_SERVER['HTTP_AUTHORIZATION'];
     $arr = explode(" ", $authHeader);
 
-    $jwt = $arr[1];
+    $jwt = $arr[1];    
 
-    $role_user = "";
-    $id_user = "";
 
     // VERIFICACION DEL TOKEN
     function checkJWT($token){
